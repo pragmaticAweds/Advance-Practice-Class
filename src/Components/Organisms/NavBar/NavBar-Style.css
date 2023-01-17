@@ -1,0 +1,11 @@
+nav {
+  @apply h-20 px-10 flex items-center justify-between;
+}
+
+.nav-spacing {
+  @apply flex items-center gap-x-10;
+}
+
+.nav-link {
+  @apply text-white;
+}

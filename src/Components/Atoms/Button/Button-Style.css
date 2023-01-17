@@ -1,0 +1,11 @@
+.button {
+  @apply outline-none rounded-[6.5rem] h-12 px-8 text-lg transition-all delay-100;
+}
+
+.primary-btn {
+  @apply border border-black-bg bg-white hover:bg-black-bg text-black-bg hover:text-white;
+}
+
+.outline-btn {
+  @apply border border-black-bg hover:bg-white bg-black-bg hover:text-black-bg text-white;
+}
