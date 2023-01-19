@@ -8,13 +8,27 @@ import HamburgerIcon from "../../Atoms/Vectors/HamburgerIcon";
 import MobileLogo from "../../Atoms/Vectors/MobileLogo";
 import CloseIcon from "../../Atoms/Vectors/CloseIcon";
 import ArrowRightIcon from "../../Atoms/Vectors/ArrowRightIcon";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const NavBar = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const handleSideBarToggle = () => {
     setOpenSideBar((prev) => !prev);
   };
+  const [scroll, setScroll] = useState(0);
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // console.log(scroll);
+
   const navLinks = [
     "Shop",
     "Artists",
@@ -30,7 +44,7 @@ const NavBar = () => {
       <div
         className={clsx(
           "mobile-side-bar transition-all delay-75",
-          openSideBar ? "left-0 " : "-left-[50rem]"
+          openSideBar ? "left-0" : "-left-[50rem]"
         )}
       >
         <div className="flex items-center justify-between w-[70%] px-6">
