@@ -1,9 +1,13 @@
 nav {
-  @apply h-20 px-10 flex items-center justify-between;
+  @apply h-20 px-10 flex items-center justify-between fixed w-full bg-transparent;
+}
+
+.mobile-side-bar {
+  @apply fixed bg-black h-full w-[80%] top-0 flex flex-col lg:hidden;
 }
 
 .nav-spacing {
-  @apply flex items-center gap-x-10;
+  @apply hidden lg:flex items-center gap-x-10;
 }
 
 .nav-link {
