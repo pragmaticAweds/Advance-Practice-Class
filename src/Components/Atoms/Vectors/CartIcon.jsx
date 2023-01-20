@@ -3,7 +3,7 @@ import * as React from "react";
 const CartIcon = (props) => (
   <svg
     viewBox="0 0 16 21"
-    fill="#FFF"
+    fill={props.color || "#FFF"}
     xmlns="http://www.w3.org/2000/svg"
     style={{
       transition: "fill .5s ease 0s",

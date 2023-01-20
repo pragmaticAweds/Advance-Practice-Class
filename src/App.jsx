@@ -2,17 +2,16 @@ import React from "react";
 import Button from "./Components/Atoms/Button";
 import RatingIcon from "./Components/Atoms/Vectors/Rating-Icon";
 import ProductHeading from "./Components/Molecules/Product-Heading";
+import ProductCard from "./Components/Molecules/Product-Card";
 import useScrollYListener from "./hooks/useScrollYListener";
 import ScreenLayout from "./Layouts/Screen-Layout";
+import ProductSlider from "./Components/Organisms/NavBar/Product-Slider";
 
 const App = () => {
-  const color = useScrollYListener();
-
-  // console.log(color);
   return (
     <ScreenLayout>
       <section className="">
-        <div className="bg-[url('https://www.goodmoodprints.io/static/media/hero.58dda6baf44c625c38cc.png')] bg-cover h-screen flex flex-col items-start justify-end  px-10 pb-12">
+        <div className="bg-[url('/img/hero-bg.webp')] bg-cover h-screen flex flex-col items-start justify-end  px-10 pb-12">
           <div className="w-1/3">
             <h1 className="text-white text-[5.375rem] leading-[5.7rem] font-medium">
               The January Collection
@@ -39,7 +38,9 @@ const App = () => {
           </div>
         </div>
         <section className="">
-          <ProductHeading sectionTitle="Trending" btnTitle="Shop all" />
+          <ProductSlider sectionTitle="Trending" />
+          <ProductSlider sectionTitle="January's Picks" />
+          <ProductSlider sectionTitle="Art for Good" />
         </section>
       </section>
     </ScreenLayout>

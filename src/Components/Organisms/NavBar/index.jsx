@@ -104,9 +104,9 @@ const NavBar = () => {
           <CartIcon />
         </span>
         <div className="nav-spacing">
-          <SearchIcon />
-          <UserIcon />
-          <CartIcon />
+          <SearchIcon color={scroll > 1 ? "black" : "white"} />
+          <UserIcon color={scroll > 1 ? "black" : "white"} />
+          <CartIcon color={scroll > 1 ? "black" : "white"} />
         </div>
       </>
     </nav>

@@ -9,7 +9,9 @@ const useScrollYListener = () => {
     const handleScroll = () => {
       setScroll(contentWrapper.scrollTop);
     };
+
     contentWrapper.addEventListener("scroll", handleScroll);
+
     return () => {
       contentWrapper.removeEventListener("scroll", handleScroll);
     };
