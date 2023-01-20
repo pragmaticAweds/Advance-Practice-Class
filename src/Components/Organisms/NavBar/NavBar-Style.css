@@ -1,5 +1,5 @@
-nav {
-  @apply h-20 px-10 flex items-center justify-between fixed w-full bg-transparent;
+.nav {
+  @apply h-20 px-10 flex items-center justify-between fixed w-full;
 }
 
 .mobile-side-bar {
@@ -8,8 +8,4 @@ nav {
 
 .nav-spacing {
   @apply hidden lg:flex items-center gap-x-10;
-}
-
-.nav-link {
-  @apply text-white;
 }

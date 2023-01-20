@@ -9,25 +9,14 @@ import MobileLogo from "../../Atoms/Vectors/MobileLogo";
 import CloseIcon from "../../Atoms/Vectors/CloseIcon";
 import ArrowRightIcon from "../../Atoms/Vectors/ArrowRightIcon";
 import { useState, useEffect, useRef } from "react";
+import useScrollYListener from "../../../hooks/useScrollYListener";
 
 const NavBar = () => {
+  const scroll = useScrollYListener();
   const [openSideBar, setOpenSideBar] = useState(false);
   const handleSideBarToggle = () => {
     setOpenSideBar((prev) => !prev);
   };
-  const [scroll, setScroll] = useState(0);
-  const handleScroll = () => {
-    setScroll(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  // console.log(scroll);
 
   const navLinks = [
     "Shop",
@@ -40,7 +29,12 @@ const NavBar = () => {
   ];
 
   return (
-    <nav>
+    <nav
+      className={clsx(
+        "nav transition-all delay-100",
+        scroll > 1 ? "bg-white" : "bg-transparent"
+      )}
+    >
       <div
         className={clsx(
           "mobile-side-bar transition-all delay-75",
@@ -70,7 +64,12 @@ const NavBar = () => {
         </div>
       </div>
       <>
-        <span className="hidden lg:block text-[2.125rem] text-white">
+        <span
+          className={clsx(
+            "hidden lg:block text-[2.125rem] ",
+            scroll > 1 ? "text-black" : "text-white"
+          )}
+        >
           Good Mood
         </span>
         <span className="lg:hidden" onClick={handleSideBarToggle}>
@@ -84,6 +83,7 @@ const NavBar = () => {
               key={"nav-link" + i}
               className={clsx(
                 "nav-link",
+                scroll > 1 ? "text-black" : "text-white",
                 i === navLinks.length - 1
                   ? "hidden"
                   : i === navLinks.length - 2

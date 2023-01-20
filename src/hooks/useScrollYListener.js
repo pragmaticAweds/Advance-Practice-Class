@@ -1,24 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const useScrollYListener = () => {
-  console.log("heilo");
-  const color = useRef("transparent");
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      color.current = "white";
-    } else {
-      color.current = "transparent";
-    }
-  };
+  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const contentWrapper = document.getElementById("content");
+
+    const handleScroll = () => {
+      setScroll(contentWrapper.scrollTop);
+    };
+    contentWrapper.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      contentWrapper.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  return color;
+  return scroll;
 };
 
 export default useScrollYListener;
